@@ -22,6 +22,10 @@ const routes = [
     name: 'BookEdit',
     component: BookEdit
   },
+  {
+    path: '*',
+    redirect: '/'
+  }
   
 ]
 
