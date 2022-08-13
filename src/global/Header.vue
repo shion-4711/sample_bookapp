@@ -6,12 +6,19 @@
       dark
     >
       <v-spacer></v-spacer>
+      <v-btn color="error" @click="deleteLocalStorage">DELETE ALL</v-btn>
     </v-app-bar>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'Header',
+  methods: {
+    deleteLocalStorage() {
+      this.$emit('delete-local-storage');
+    }
+  }
 
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Header></Header>
+    <Header @delete-local-storage="deleteLocalStorage"></Header>
     <v-main>
       <v-container>
         <router-view
@@ -79,6 +79,15 @@ export default {
       },
       goToEditPage(id) {
         this.$router.push(`/edit/${id}`);
+      },
+      deleteLocalStorage() {
+        const isDeleted = 'Are you sure to delete all data in local storage?'
+        if(window.confirm(isDeleted)) {
+          localStorage.setItem(STORAGE_KEY, '');
+          localStorage.removeItem(STORAGE_KEY);
+          this.books = [];
+          window.location.reload();
+        }
       }
     },
     
